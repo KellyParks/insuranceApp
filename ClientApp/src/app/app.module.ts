@@ -11,7 +11,6 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { GetCategoryPricePipe } from './get-category-price.pipe';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { GetCategoryPricePipe } from './get-category-price.pipe';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent,
-    GetCategoryPricePipe
+    FetchDataComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

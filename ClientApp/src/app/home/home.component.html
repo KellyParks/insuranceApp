@@ -2,7 +2,7 @@
 <div *ngFor="let availableCategory of availableCategories">
   <div class="category-container">
     <div>{{availableCategory}}</div>
-    <div>{{availableCategory | getCategoryPrice :availableCategory:items}}</div>
+    <div>{{getTotalCategoryValue(availableCategory)}}</div>
   </div>
 
   <div *ngFor="let item of items">
@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<div>Total: {{getTotalPrice()}}</div>
+<div>Total: {{getTotalValue()}}</div>
 <form [formGroup]="itemDetailsForm" (ngSubmit)="onSubmit()">
   <label>
     Item name:
