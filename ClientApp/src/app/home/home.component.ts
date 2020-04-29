@@ -1,8 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { CalculationService } from '../calculation.service';
-import { ItemService } from '../item.service';
+import { Component, OnInit } from '@angular/core';
+import { ItemAPIService } from '../item-api.service';
 
 interface Item {
   id?: number;
@@ -17,57 +14,29 @@ interface Item {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public availableCategories = ['Electronics', 'Clothing'];
-  public items: Item[] = [];
-  public newItem: Item;
+
+  public allItems: Item[] = [];
 
   constructor(
-    public calculationService: CalculationService,
-    public itemService: ItemService
+    public itemApiService: ItemAPIService,
   ) { }
-
-  itemDetailsForm = new FormGroup({
-    name: new FormControl(''),
-    value: new FormControl(''),
-    category: new FormControl('')
-  });
 
   ngOnInit() {
     this.fetchData();
   }
 
   fetchData() {
-    this.itemService.getItems().subscribe(result => {
-      this.items = result;
+    this.itemApiService.getItems().subscribe(result => {
+      this.allItems = result;
     }, error => console.error(error));
   }
 
-  onSubmit() {
-     let newItem = {
-      name: this.itemDetailsForm.get('name').value,
-      value: this.itemDetailsForm.get('value').value,
-      category: this.itemDetailsForm.get('category').value
-    };
-
-    this.itemService.createItem(newItem).subscribe(result => {
-      this.items.push(result)
-    }, error => console.error(error));
+  onAddedItem(newItem: Item) {
+    this.allItems.push(newItem);
   }
 
-  onRemove(id) {
-    this.itemService.deleteItem(id).subscribe(result => {
-      if (result) {
-        this.fetchData()
-      }
-    }, error => console.error(error));
-  }
-
-  getTotalValue() {
-    return this.calculationService.getTotalValueOfAllItems(this.items);
-  }
-
-  getTotalCategoryValue(category: string) {
-    return this.calculationService.getValueOfItemsInCategory(category, this.items);
+  onDeletedItem() {
+    this.fetchData();
   }
 
 }

@@ -1,0 +1,20 @@
+<form [formGroup]="itemDetailsForm" (ngSubmit)="onSubmit()">
+  <label>
+    Item name:
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Item value:
+    <input type="number" formControlName="value" step="100">
+  </label>
+  <label>
+    Item category:
+    <select formControlName="category">
+      <option ngValue="null" disabled>Choose a category</option>
+      <option *ngFor="let availableCategory of availableCategories" value={{availableCategory}}>{{availableCategory}}</option>
+  </select>
+  </label>
+
+  <button type="submit" [disabled]="!itemDetailsForm.valid">Add</button>
+
+  </form>

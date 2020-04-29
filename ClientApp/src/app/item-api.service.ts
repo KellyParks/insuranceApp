@@ -12,7 +12,7 @@ interface Item {
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService {
+export class ItemAPIService {
 
   public baseUrl: string;
 

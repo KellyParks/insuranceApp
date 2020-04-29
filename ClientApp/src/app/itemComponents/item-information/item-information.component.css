@@ -1,0 +1,14 @@
+.category-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.item-spacing {
+  margin-right: 10px;
+}

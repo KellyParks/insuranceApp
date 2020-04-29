@@ -1,0 +1,16 @@
+<div *ngFor="let availableCategory of availableCategories">
+  <div class="category-container">
+    <div>{{availableCategory}}</div>
+    <div>{{getTotalCategoryValue(availableCategory)}}</div>
+  </div>
+
+  <div *ngFor="let item of allItems">
+    <div class="item-container" *ngIf="item.category == availableCategory">
+      <span class="item-spacing">{{item.name}}</span>
+      <span class="item-spacing">{{item.value}}</span>
+      <button type="button" (click)="onRemove(item.id)">Remove</button>
+    </div>
+  </div>
+</div>
+
+<div>Total: {{getTotalValue()}}</div>
