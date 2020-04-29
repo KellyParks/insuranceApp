@@ -1,2 +1,4 @@
-<item-information [allItems]="allItems" (removedItem)="onDeletedItem()"></item-information>
-<add-item-form (addedItem)="onAddedItem($event)"></add-item-form>
+<div class="item-data-container">
+  <item-information [allItems]="allItems" (removedItem)="onDeletedItem()"></item-information>
+  <add-item-form (addedItem)="onAddedItem($event)"></add-item-form>
+</div>

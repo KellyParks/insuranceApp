@@ -1,4 +1,5 @@
-<form [formGroup]="itemDetailsForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="itemDetailsForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div><strong>Add an Item:</strong></div>
   <label>
     Item name:
     <input type="text" formControlName="name">
