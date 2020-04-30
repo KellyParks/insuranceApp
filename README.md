@@ -38,9 +38,8 @@ The add-item-form component fires off an event when a new item is added. The POS
 
 The home component's other child, the item-information component, offers the user the ability to remove an item from the list. When an item is deleted, the item-information component fires off an event to tell the parent that the list is changed, and it needs to make a GET request to get the updated list.
 
-I wanted to keep the client side DRY and keep concerns separated. At first I created a single component that managed the main content of the app, then started splitting it up into services, components, templates and interfaces, using dependency injection where required. Sectioning out the concerns into their own parts makes those parts more flexible, maintainable and easier to test. 
+I wanted to keep the client side DRY and keep concerns separated. At first I created a single component that managed the main content of the app, then started splitting it up into services, components, templates and interfaces, using dependency injection where required. Sectioning out the concerns into their own parts makes those parts more flexible, maintainable and easier to test.
 
 ### Tests
-To run the Angular tests, run `ng test`.
-
-Unfortunately, I ran out of time to add back-end tests for the models and controllers.
+Currently, only the front-end components are tested.
+To run the Angular tests, run `ng test` from the ClientApp directory.

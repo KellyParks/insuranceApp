@@ -1,9 +1,16 @@
 import { TestBed } from '@angular/core/testing';
+import { Injectable, Inject } from '@angular/core';
 
 import { ItemAPIService } from './item-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ItemApiService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpClientModule],
+    providers: [
+      { provide: 'BASE_URL', useValue: 'baseUrl' },
+    ],
+  }));
 
   it('should be created', () => {
     const service: ItemAPIService = TestBed.get(ItemAPIService);
