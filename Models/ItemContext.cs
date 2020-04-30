@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
+/**
+ * Maps the Item model to the database.
+ */
 namespace insuranceApp.Models
 {
     public class ItemContext : DbContext

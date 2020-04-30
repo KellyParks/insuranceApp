@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemAPIService } from '../item-api.service';
+import { ItemAPIService } from '../services/item-api.service';
+import { Item } from '../interfaces/item-interface';
 
-interface Item {
-  id?: number;
-  name: string;
-  value: number;
-  category: string;
-}
-
+/**
+ * The parent component that is responsible for managing the state of list of items.
+ * Child components listen to 'allItems' for changes.
+*/
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,10 +13,11 @@ interface Item {
 })
 export class HomeComponent implements OnInit {
 
-  public allItems: Item[] = [];
+  //whenever a child compoenent removes or adds an item, this value is updated.
+  private allItems: Item[] = [];
 
   constructor(
-    public itemApiService: ItemAPIService,
+    private itemApiService: ItemAPIService,
   ) { }
 
   ngOnInit() {

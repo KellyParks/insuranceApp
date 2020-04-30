@@ -1,14 +1,11 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Item } from '../interfaces/item-interface';
 
-interface Item {
-  id?: number;
-  name: string;
-  value: number;
-  category: string;
-}
-
+/**
+ * Handles the API calls for the Items endpoint.
+*/
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +20,7 @@ export class ItemAPIService {
     this.baseUrl = baseUrl;
   }
 
-  createItem(newItem): Observable<Item> {
+  createItem(newItem: Item): Observable<Item> {
     return this.http.post<Item>(this.baseUrl + 'api/Items', newItem);
   }
 
@@ -31,7 +28,7 @@ export class ItemAPIService {
     return this.http.get<Item[]>(this.baseUrl + 'api/Items');
   }
 
-  deleteItem(itemId): Observable<Item> {
+  deleteItem(itemId: number): Observable<Item> {
     return this.http.delete<Item>(this.baseUrl + 'api/Items/' + itemId);
   }
 

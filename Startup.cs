@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using insuranceApp.Models;
 
-
+/**
+ * Sets up the application with a local database and configuration for the type of environment.
+ */
 namespace insuranceApp
 {
     public class Startup
@@ -23,8 +24,8 @@ namespace insuranceApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ItemContext>(opt =>
-            opt.UseSqlite("Data Source=sqlite.db"));
+            //create the local database and Items table
+            services.AddDbContext<ItemContext>(opt => opt.UseSqlite("Data Source=sqlite.db"));
             services.AddScoped<ItemContext>();
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory

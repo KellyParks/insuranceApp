@@ -1,14 +1,11 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ItemAPIService } from '../../item-api.service';
+import { ItemAPIService } from '../../services/item-api.service';
+import { Item } from '../../interfaces/item-interface';
 
-interface Item {
-  id?: number;
-  name: string;
-  value: number;
-  category: string;
-}
-
+/**
+ * This component is responsible for adding an item to the list.
+*/
 @Component({
   selector: 'add-item-form',
   templateUrl: './add-item-form.component.html',
@@ -29,7 +26,7 @@ export class AddItemFormComponent {
   });
 
   onSubmit() {
-     let newItem = {
+     const newItem = {
       name: this.itemDetailsForm.get('name').value,
       value: this.itemDetailsForm.get('value').value,
       category: this.itemDetailsForm.get('category').value
