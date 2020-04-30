@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { Injectable, Inject } from '@angular/core';
 
 import { ItemAPIService } from './item-api.service';
 import { HttpClientModule } from '@angular/common/http';
