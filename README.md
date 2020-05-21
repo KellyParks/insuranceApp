@@ -1,6 +1,8 @@
-# insuranceApp
+# Item Insurance App
 
-This is an ASP.NET single page web application, with Angular 8 as the front-end framework. In essence, I've used the entity framework in .NET to create the API endpoint. That endpoint is called from the front-end using Angular's HttpClient service. I set up the application to initialize with a local database using SQLite so that data would persist.
+This is a .NET SPA, with Angular 8 as the front-end framework. The idea is simple: create an app to manage a list of items, their value, and their applicable category. Once an item is added to a list, it should appear under the correct category, and the sum total of all the items in a given category should be updated. There should also be functionality to remove an item from the list. 
+
+I've used the framework in .NET to create an API endpoint to perform CRUD operations on the items. That endpoint is called from the front-end using Angular's HttpClient service. I set up the application to initialize with a local database using SQLite so that data would persist.
 
 ## To Run:
 
